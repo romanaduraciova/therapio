@@ -12,10 +12,6 @@ School project for **PV247 TypeScript Full-Stack Web Development**.
 | Client            | Sign in via SSO, book and cancel sessions, see upcoming and past bookings, see payment details and a QR code |
 | Therapist (admin) | Manage availability, bookings, clients, prices and blog content                                              |
 
-## Wireframe
-
-Clickable prototype of all 20 screens: [`docs/prototype.html`](docs/prototype.html) (working prototype in browser).
-
 ## Tech stack
 
 Next.js (App Router, Server Actions) · TypeScript · Tailwind + shadcn/ui · Drizzle ORM + Turso (SQLite) · React Hook Form + Zod · TanStack Table / Query · next-auth (GitHub SSO) · Resend (e-mail) · Vercel
@@ -29,7 +25,7 @@ Times are stored as UTC timestamps (shown in Europe/Prague), prices in whole CZK
 ### Features
 
 - [x] Next.js project with shadcn/ui
-- [x] Project plan, data model, screen specification
+- [x] Project plan, data model
 - [ ] Public site: home, pricing, blog, contact form
 - [ ] SSO sign-in with client / therapist roles
 - [ ] Availability blocks published by the therapist
@@ -52,16 +48,6 @@ Times are stored as UTC timestamps (shown in Europe/Prague), prices in whole CZK
 | I      | Backend: bookings, e-mails, calendar feed |
 | R      | Frontend: all pages and forms             |
 
-## Getting started
-
-```bash
-npm install
-cp .env.example .env.local   # fill in the values
-npm run dev
-```
-
 ## Workflow
 
-Single `main` branch, feature branches named `feat/<issue-number>-short-name`, every change goes through a pull request with one review. Work is tracked as GitHub issues.
-
-> > > > > > > Stashed changes
+Single `main` branch, feature branches named `<issue-number>-short-name`, every change goes through a pull request with one review. Work is tracked as GitHub issues.
