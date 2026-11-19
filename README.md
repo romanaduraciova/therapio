@@ -14,7 +14,7 @@ School project for **PV247 TypeScript Full-Stack Web Development**.
 
 ## Tech stack
 
-Next.js (App Router, Server Actions) · TypeScript · Tailwind + shadcn/ui · Drizzle ORM + Turso (SQLite) · React Hook Form + Zod · TanStack Table / Query · next-auth (GitHub SSO) · Resend (e-mail) · Vercel
+Next.js (App Router, Server Actions) · TypeScript · Tailwind + shadcn/ui · Drizzle ORM + Turso (SQLite) · React Hook Form + Zod · TanStack Table / Query · better-auth (GitHub SSO) · Resend (e-mail) · Vercel
 
 ## Data model
 
