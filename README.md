@@ -20,7 +20,7 @@ Next.js (App Router, Server Actions) · TypeScript · Tailwind + shadcn/ui · Dr
 
 ![Data model (ERD)](docs/erd.png)
 
-Times are stored as UTC timestamps (shown in Europe/Prague), prices in whole CZK. `availability_block` has no foreign key: the server checks that a booking lies inside a block and does not overlap another one.
+Times are stored as UTC timestamps (shown in Europe/Prague), prices in CZK.
 
 ### Features
 
