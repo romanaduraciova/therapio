@@ -4,7 +4,9 @@ import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 import { user } from './user';
 
 export const clientNote = sqliteTable('client_note', {
-	id: text('id').primaryKey(),
+	id: text('id')
+		.primaryKey()
+		.$defaultFn(() => crypto.randomUUID()),
 	clientId: text('client_id')
 		.notNull()
 		.references(() => user.id, { onDelete: 'cascade' }),

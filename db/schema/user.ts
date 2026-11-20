@@ -7,7 +7,9 @@ export const roleSchema = z.enum(role);
 export type Role = z.infer<typeof roleSchema>;
 
 export const user = sqliteTable('user', {
-	id: text('id').primaryKey(),
+	id: text('id')
+		.primaryKey()
+		.$defaultFn(() => crypto.randomUUID()),
 	name: text('name').notNull(),
 	email: text('email').notNull().unique(),
 	emailVerified: integer('email_verified', { mode: 'boolean' })

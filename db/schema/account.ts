@@ -6,7 +6,9 @@ import { user } from './user';
 export const account = sqliteTable(
 	'account',
 	{
-		id: text('id').primaryKey(),
+		id: text('id')
+			.primaryKey()
+			.$defaultFn(() => crypto.randomUUID()),
 		accountId: text('account_id').notNull(),
 		providerId: text('provider_id').notNull(),
 		userId: text('user_id')

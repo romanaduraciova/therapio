@@ -19,7 +19,9 @@ export const statusSchema = z.enum(status);
 export type Status = z.infer<typeof statusSchema>;
 
 export const booking = sqliteTable('booking', {
-	id: text('id').primaryKey(),
+	id: text('id')
+		.primaryKey()
+		.$defaultFn(() => crypto.randomUUID()),
 	clientId: text('client_id')
 		.notNull()
 		.references(() => user.id, { onDelete: 'cascade' }),
