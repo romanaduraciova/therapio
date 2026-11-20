@@ -18,7 +18,7 @@ Next.js (App Router, Server Actions) · TypeScript · Tailwind + shadcn/ui · Dr
 
 ## Data model
 
-![Data model (ERD)](docs/erd.png)
+[Data model (ERD)](docs/ERD.pdf)
 
 Times are stored as UTC timestamps (shown in Europe/Prague), prices in CZK.
 
