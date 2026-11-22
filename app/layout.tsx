@@ -1,3 +1,4 @@
+import { Providers } from '@/app/providers';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 
