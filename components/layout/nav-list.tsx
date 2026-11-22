@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-import { isActiveHref, type NavItem } from './nav-items';
+import { isActiveItem, type NavItem } from './nav-items';
 
 export type NavListProps = {
 	items: readonly NavItem[];
@@ -26,8 +26,7 @@ export const NavList = ({
 			)}
 		>
 			{items.map(item => {
-				const isActive =
-					pathname !== undefined && isActiveHref(pathname, item.href);
+				const isActive = pathname !== undefined && isActiveItem(pathname, item);
 
 				return (
 					<li key={item.href}>

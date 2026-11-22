@@ -5,10 +5,14 @@ import { Suspense } from 'react';
 
 import { MainNav } from './main-nav';
 import { MobileNav } from './mobile-nav';
-import { publicNavItems } from './nav-items';
+import type { NavItem } from './nav-items';
 import { NavList } from './nav-list';
 
-export const SiteHeader = () => (
+type SiteHeaderProps = {
+	items: readonly NavItem[];
+};
+
+export const SiteHeader = ({ items }: SiteHeaderProps) => (
 	<header className="bg-background sticky top-0 z-40 w-full border-b">
 		<div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
 			<Link href="/" className="font-heading text-lg font-bold">
@@ -16,8 +20,8 @@ export const SiteHeader = () => (
 			</Link>
 
 			<div className="hidden md:block">
-				<Suspense fallback={<NavList items={publicNavItems} />}>
-					<MainNav items={publicNavItems} />
+				<Suspense fallback={<NavList items={items} />}>
+					<MainNav items={items} />
 				</Suspense>
 			</div>
 
@@ -25,7 +29,7 @@ export const SiteHeader = () => (
 				<ThemeToggle />
 				<AuthButton />
 				<div className="md:hidden">
-					<MobileNav items={publicNavItems} />
+					<MobileNav items={items} />
 				</div>
 			</div>
 		</div>
