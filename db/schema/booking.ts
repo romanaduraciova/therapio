@@ -1,7 +1,7 @@
-import { format, status } from '../../modules/booking/constants';
 import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 import z from 'zod';
 
+import { format, status } from '../../modules/booking/constants';
 import { availabilityBlock } from './availabilityBlock';
 import { bookingType } from './bookingType';
 import { role, user } from './user';
