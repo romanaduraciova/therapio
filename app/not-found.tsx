@@ -12,6 +12,7 @@ const NotFound = () => (
 			alt="not found illustration"
 			width={320}
 			height={212}
+			loading="eager"
 			className="h-auto w-80"
 		/>
 		<h1 className="font-heading text-2xl font-bold">Page not found</h1>

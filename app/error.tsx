@@ -21,6 +21,7 @@ const ErrorPage = ({ error, retry }: ErrorPageProps) => {
 				alt="error illustration"
 				width={320}
 				height={248}
+				loading="eager"
 				className="h-auto w-80"
 			/>
 			<h1 className="font-heading text-2xl font-bold">Something went wrong</h1>

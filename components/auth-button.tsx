@@ -49,11 +49,16 @@ export const AuthButton = () => {
 			disabled={isPending || loading}
 		>
 			{session ? (
-				<LogOut data-icon="inline-start" />
+				<>
+					<LogOut data-icon="inline-start" />
+					Sign out
+				</>
 			) : (
-				<LogIn data-icon="inline-start" />
+				<>
+					<LogIn data-icon="inline-start" />
+					Sign in
+				</>
 			)}
-			{session ? 'Sign out' : 'Sign in'}
 		</Button>
 	);
 };
