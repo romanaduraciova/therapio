@@ -41,10 +41,12 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
 		>
 			<body className="flex min-h-full flex-col">
 				<ThemeProvider attribute="class" defaultTheme="light">
-					<TooltipProvider>
-						{children}
-						<Toaster richColors position="bottom-right" />
-					</TooltipProvider>
+					<Providers>
+						<TooltipProvider>
+							<main>{children}</main>
+							<Toaster richColors position="bottom-right" />
+						</TooltipProvider>
+					</Providers>
 				</ThemeProvider>
 			</body>
 		</html>
