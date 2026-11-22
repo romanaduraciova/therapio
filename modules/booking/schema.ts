@@ -49,6 +49,7 @@ export const bookingActionErrors = [
 	'INVALID_INPUT',
 	'SESSION_TYPE_NOT_FOUND',
 	'SLOT_UNAVAILABLE',
+	'TRY_AGAIN',
 	'BLOCK_NOT_FOUND',
 	'BLOCK_OVERLAP',
 	'BLOCK_HAS_BOOKINGS',
@@ -102,7 +103,7 @@ export const blockRangeSchema = z
 	);
 export type BlockRangeInput = z.infer<typeof blockRangeSchema>;
 
-export const blockIdSchema = z.object({ blockId: z.string().min(1) });
+export const blockIdSchema = z.object({ blockId: z.uuid() });
 export type BlockIdInput = z.infer<typeof blockIdSchema>;
 
 export const updateBlockSchema = z.intersection(

@@ -66,8 +66,8 @@ export const createBookingAction = async (
 
 	const endsAt = new Date(startsAt.getTime() + type.durationMin * MINUTE_MS);
 
-	const bookingId = await db
-		.transaction(async tx => {
+	const result = await db
+		.transaction(async (tx): Promise<CreateBookingResult> => {
 			const windows = await getAvailabilityWindows(startsAt, endsAt, tx);
 			const slot = findBookableSlot({
 				windows,
@@ -77,7 +77,7 @@ export const createBookingAction = async (
 			});
 
 			if (!slot) {
-				return null;
+				return { ok: false, error: 'SLOT_UNAVAILABLE' };
 			}
 
 			const [created] = await tx
@@ -95,21 +95,19 @@ export const createBookingAction = async (
 				})
 				.returning({ id: booking.id });
 
-			return created.id;
+			return { ok: true, bookingId: created.id };
 		})
-		.catch((error: unknown) => {
+		.catch((error: unknown): CreateBookingResult => {
 			if (isDatabaseBusy(error)) {
-				return null;
+				return { ok: false, error: 'TRY_AGAIN' };
 			}
 
 			throw error;
 		});
 
-	if (!bookingId) {
-		return { ok: false, error: 'SLOT_UNAVAILABLE' };
+	if (result.ok) {
+		refreshBookingCaches(user.id);
 	}
 
-	refreshBookingCaches(user.id);
-
-	return { ok: true, bookingId };
+	return result;
 };
