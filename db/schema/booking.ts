@@ -1,3 +1,4 @@
+import { format, status } from '../../modules/booking/constants';
 import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 import z from 'zod';
 
@@ -5,16 +6,11 @@ import { availabilityBlock } from './availabilityBlock';
 import { bookingType } from './bookingType';
 import { role, user } from './user';
 
-export const format = ['in_person', 'online'] as const;
+export { format, status };
+
 export const formatSchema = z.enum(format);
 export type Format = z.infer<typeof formatSchema>;
 
-export const status = [
-	'pending',
-	'confirmed',
-	'completed',
-	'cancelled'
-] as const;
 export const statusSchema = z.enum(status);
 export type Status = z.infer<typeof statusSchema>;
 
