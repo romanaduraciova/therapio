@@ -1,12 +1,12 @@
 'use client';
 
 import { signIn, signOut, useSession } from '@/lib/auth-client';
-import { LogOut, ScanFace } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { Button } from './ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 export const AuthButton = () => {
 	const router = useRouter();
@@ -17,33 +17,48 @@ export const AuthButton = () => {
 		setLoading(true);
 
 		if (session) {
-			await signOut({ fetchOptions: { onSuccess: () => router.refresh() } });
+			await signOut({
+				fetchOptions: {
+					onSuccess: () => {
+						toast.success('Signed out');
+						router.refresh();
+					},
+					onError: () => {
+						toast.error('Sign out failed. Please try again.');
+					}
+				}
+			});
 			setLoading(false);
 		} else {
 			const { error } = await signIn.social({
 				provider: 'github',
 				callbackURL: '/'
 			});
-			if (error) setLoading(false);
+			if (error) {
+				toast.error('Sign in failed. Please try again.');
+				setLoading(false);
+			}
 		}
 	};
 
 	return (
-		<Tooltip>
-			<TooltipTrigger
-				render={
-					<Button
-						size="icon-sm"
-						onClick={handleClick}
-						disabled={isPending || loading}
-					>
-						{session ? <LogOut /> : <ScanFace />}
-					</Button>
-				}
-			/>
-			<TooltipContent>
-				<p>{session ? 'Sign out' : 'Sign in with GitHub'}</p>
-			</TooltipContent>
-		</Tooltip>
+		<Button
+			size="sm"
+			className="gap-2"
+			onClick={handleClick}
+			disabled={isPending || loading}
+		>
+			{session ? (
+				<>
+					<LogOut data-icon="inline-start" />
+					Sign out
+				</>
+			) : (
+				<>
+					<LogIn data-icon="inline-start" />
+					Sign in
+				</>
+			)}
+		</Button>
 	);
 };

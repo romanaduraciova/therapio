@@ -43,3 +43,8 @@ next-env.d.ts
 
 # Turso
 /turso/
+
+# local SQLite database
+*.db
+*.db-shm
+*.db-wal
