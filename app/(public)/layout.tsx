@@ -6,7 +6,9 @@ import type { ReactNode } from 'react';
 const PublicLayout = ({ children }: { children: ReactNode }) => (
 	<>
 		<SiteHeader items={publicNavItems} />
-		<main className="flex-1">{children}</main>
+		<main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
+			{children}
+		</main>
 		<SiteFooter />
 	</>
 );

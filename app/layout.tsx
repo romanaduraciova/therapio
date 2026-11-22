@@ -5,7 +5,7 @@ import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
-import { Noto_Sans, Playfair_Display } from 'next/font/google';
+import { Geist_Mono, Noto_Sans, Playfair_Display } from 'next/font/google';
 
 const playfairDisplayHeading = Playfair_Display({
 	subsets: ['latin'],
@@ -13,6 +13,11 @@ const playfairDisplayHeading = Playfair_Display({
 });
 
 const notoSans = Noto_Sans({ subsets: ['latin'], variable: '--font-sans' });
+
+const geistMono = Geist_Mono({
+	subsets: ['latin'],
+	variable: '--font-geist-mono'
+});
 
 export const metadata: Metadata = {
 	title: { template: '%s | Therapio', default: 'Therapio' },
@@ -29,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
 				'antialiased',
 				'font-sans',
 				notoSans.variable,
+				geistMono.variable,
 				playfairDisplayHeading.variable
 			)}
 		>

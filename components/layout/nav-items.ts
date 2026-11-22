@@ -13,8 +13,7 @@ export const publicNavItems: readonly NavItem[] = [
 
 export const clientNavItems: readonly NavItem[] = [
 	{ href: '/bookings', label: 'My bookings' },
-	{ href: '/book', label: 'Book a session' },
-	{ href: '/profile', label: 'Profile' }
+	{ href: '/book', label: 'Book a session' }
 ];
 
 export const adminNavItems: readonly NavItem[] = [

@@ -7,6 +7,7 @@ import { MainNav } from './main-nav';
 import { MobileNav } from './mobile-nav';
 import type { NavItem } from './nav-items';
 import { NavList } from './nav-list';
+import { UserName } from './user-name';
 
 type SiteHeaderProps = {
 	items: readonly NavItem[];
@@ -26,6 +27,7 @@ export const SiteHeader = ({ items }: SiteHeaderProps) => (
 			</div>
 
 			<div className="flex items-center gap-2">
+				<UserName />
 				<ThemeToggle />
 				<AuthButton />
 				<div className="md:hidden">

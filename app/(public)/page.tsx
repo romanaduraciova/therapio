@@ -1,6 +1,5 @@
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 import { Suspense } from 'react';
 
 const Greeting = async () => {
@@ -16,7 +15,6 @@ const HomePage = () => (
 		<Suspense fallback={<p>Hello…</p>}>
 			<Greeting />
 		</Suspense>
-		<Link href="/profile">Go to profile</Link>
 	</div>
 );
 
