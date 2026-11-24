@@ -1,6 +1,5 @@
+import { GitHubSignInButton } from '@/components/github-sign-in-button';
 import type { Metadata } from 'next';
-
-import { GitHubSignInButton } from './github-sign-in-button';
 
 export const metadata: Metadata = { title: 'Sign in' };
 

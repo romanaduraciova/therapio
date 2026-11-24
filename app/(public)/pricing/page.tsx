@@ -50,7 +50,8 @@ const PricingPage = async () => {
 
 			<p className="text-muted-foreground flex items-center gap-2">
 				<Info className="size-4 shrink-0" />
-				Payment is by bank transfer, you will find the details with your booking.
+				Payment is by bank transfer, you will find the details with your
+				booking.
 			</p>
 
 			<Link
