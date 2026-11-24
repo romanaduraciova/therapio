@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
 				<ThemeProvider attribute="class" defaultTheme="light">
 					<Providers>
 						<TooltipProvider>
-							<main>{children}</main>
+							{children}
 							<Toaster richColors position="bottom-right" />
 						</TooltipProvider>
 					</Providers>

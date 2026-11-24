@@ -13,6 +13,18 @@ export const getActiveBookingType = async (id: string) =>
 		where: (type, { and, eq }) => and(eq(type.id, id), eq(type.active, true))
 	});
 
+export const getActiveBookingTypes = async () => {
+	'use cache';
+	cacheTag(bookingTags.bookingTypes);
+	cacheLife('max');
+
+	return await db.query.bookingType.findMany({
+		where: (type, { eq }) => eq(type.active, true),
+		columns: { id: true, name: true, durationMin: true, priceCzk: true },
+		orderBy: (type, { asc }) => [asc(type.priceCzk)]
+	});
+};
+
 export const getAvailabilityWindows = async (
 	from: Date,
 	to: Date,
