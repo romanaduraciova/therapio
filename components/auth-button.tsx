@@ -15,7 +15,11 @@ export const AuthButton = () => {
 
 	const handleClick = async () => {
 		if (!session) {
-			router.push('/login');
+			const { pathname, search } = window.location;
+			if (pathname !== '/login') {
+				const callbackUrl = encodeURIComponent(pathname + search);
+				router.push(`/login?callbackUrl=${callbackUrl}`);
+			}
 			return;
 		}
 
