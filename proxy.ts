@@ -1,12 +1,13 @@
 import { getSessionCookie } from 'better-auth/cookies';
 import { type NextRequest, NextResponse } from 'next/server';
 
-const PUBLIC_ROUTES = ['/', '/login'];
+const PUBLIC_ROOT_ROUTE = '/';
+const PUBLIC_ROUTES = ['/login', '/pricing', '/contact'];
 
 export default function proxy(request: NextRequest) {
-	const isPublic = PUBLIC_ROUTES.some(route =>
-		request.nextUrl.pathname.startsWith(route)
-	);
+	const isPublic =
+		PUBLIC_ROOT_ROUTE === request.nextUrl.pathname ||
+		PUBLIC_ROUTES.some(route => request.nextUrl.pathname.startsWith(route));
 
 	if (!isPublic && !getSessionCookie(request)) {
 		const redirectUrl = new URL('/login', request.url);
