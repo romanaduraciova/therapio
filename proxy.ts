@@ -2,7 +2,7 @@ import { getSessionCookie } from 'better-auth/cookies';
 import { type NextRequest, NextResponse } from 'next/server';
 
 const PUBLIC_ROOT_ROUTE = '/';
-const PUBLIC_ROUTES = ['/login', '/pricing', '/contact'];
+const PUBLIC_ROUTES = ['/login', '/pricing', '/contact', '/blog'];
 
 export default function proxy(request: NextRequest) {
 	const isPublic =
