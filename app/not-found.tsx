@@ -1,4 +1,4 @@
-import { buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,9 +19,9 @@ const NotFound = () => (
 		<p className="text-muted-foreground">
 			The page you are looking for doesn&apos;t exist.
 		</p>
-		<Link href="/" className={buttonVariants()}>
+		<Button nativeButton={false} render={<Link href="/" />}>
 			Back to home
-		</Link>
+		</Button>
 	</main>
 );
 

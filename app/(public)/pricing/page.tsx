@@ -1,4 +1,4 @@
-import { buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
 	Table,
 	TableBody,
@@ -54,12 +54,13 @@ const PricingPage = async () => {
 				booking.
 			</p>
 
-			<Link
-				href="/contact"
-				className={buttonVariants({ className: 'self-start' })}
+			<Button
+				className="self-start"
+				nativeButton={false}
+				render={<Link href="/contact" />}
 			>
 				Get in touch
-			</Link>
+			</Button>
 		</div>
 	);
 };
