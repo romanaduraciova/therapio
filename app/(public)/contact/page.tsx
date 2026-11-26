@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = { title: 'Contact' };
 
 const contactDetails = {
-	name: 'Petra Terapeutka',
+	name: 'Mgr. Jana Nováková',
 	address: 'Botanická 247, 612 00 Brno',
 	phone: '+420 247 247 247',
 	email: 'terapeutka@pv247.cz'
