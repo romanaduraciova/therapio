@@ -1,6 +1,6 @@
 import { BlobShape } from '@/components/blob-shape';
 import { Button } from '@/components/ui/button';
-import { HeartHandshake, Map, MapPin, Pin, PinIcon } from 'lucide-react';
+import { HeartHandshake, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ import { Badge } from '../ui/badge';
 
 export const HeroSection = () => (
 	<section className="grid items-center gap-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-8">
-		<div className="flex flex-col gap-6 md:gap-">
+		<div className="md:gap- flex flex-col gap-6">
 			<h1 className="font-heading text-5xl leading-none font-bold tracking-tight sm:text-6xl lg:text-7xl">
 				Therapy that gives you space
 			</h1>
