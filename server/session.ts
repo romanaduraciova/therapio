@@ -1,7 +1,9 @@
 import 'server-only';
 import { db } from '@/db';
+import { type Role } from '@/db/schema/user';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import { forbidden, redirect } from 'next/navigation';
 import { cache } from 'react';
 
 export const getCurrentUser = cache(async () => {
@@ -18,3 +20,17 @@ export const getCurrentUser = cache(async () => {
 		})) ?? null
 	);
 });
+
+export const requireRole = async (role: Role) => {
+	const user = await getCurrentUser();
+
+	if (!user) {
+		redirect('/login');
+	}
+
+	if (user.role !== role) {
+		forbidden();
+	}
+
+	return user;
+};
